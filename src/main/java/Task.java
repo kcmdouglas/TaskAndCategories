@@ -6,14 +6,15 @@ public class Task {
     private String mDescription;
     private LocalDateTime mCreatedAt;
     private boolean mCompleted;
-    // private int mId;
+    private static ArrayList<Task> instances = new ArrayList<Task>();
+    private int mId;
 
     public Task(String description) {
         mDescription = description;
         mCreatedAt = LocalDateTime.now();
         mCompleted = false;
-        // instances.add(this);
-        // mId = instances.size();
+        instances.add(this);
+        mId = instances.size();
     }
 
     public String getDescription() {
@@ -27,9 +28,25 @@ public class Task {
     public boolean isCompleted() {
       return mCompleted;
     }
-    // 
-    // public int getId() {
-    //   return mId;
-    // }
+
+    public static ArrayList<Task> all() {
+      return instances;
+    }
+
+    public int getId() {
+      return mId;
+    }
+
+    public static Task find(int id) {
+      try {
+        return instances.get(id-1);
+      } catch (IndexOutOfBoundsException ioobe) {
+        return null;
+      }
+    }
+
+    public static void clear() {
+      instances.clear();
+    }
 
 }
