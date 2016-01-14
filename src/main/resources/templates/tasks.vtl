@@ -1,11 +1,17 @@
 <h1>All Tasks</h1>
 
+<div class="row">
 #foreach($category in $categories)
- <h3><a href="/categories/$category.getId()">$category.getName()</a></h3>
+  <div class="col-md-1">
+    <h3><a href="/categories/$category.getId()">$category.getName()</a></h3>
  #foreach ($task in $category.getTasks())
    <li>$task.getDescription()</li>
  #end
+ </div>
 #end
+</div>
 
-
-<a href="/tasks/new" class="btn btn-default">Add a New Task</a>
+<br>
+<br>
+<a href="/" class="btn btn-primary">Go Home</a>
+<a href="/categories" class="btn btn-success">View Categories</a>
