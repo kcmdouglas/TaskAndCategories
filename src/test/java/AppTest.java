@@ -20,38 +20,49 @@ public class AppTest extends FluentTest {
 
   @Test
   public void rootTest() {
-      goTo("http://localhost:4567/");
-      assertThat(pageSource()).contains("Task List");
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("To Do List");
   }
 
   @Test
   public void taskIsCreatedTest() {
-      goTo("http://localhost:4567/");
-      fill("#description").with("Mow the lawn");
-      submit(".btn");
-      assertThat(pageSource()).contains("Your task has been saved.");
+    goTo("http://localhost:4567/");
+    **click("a", withText("Add a new task"));**
+    fill("#description").with("Mow the lawn");
+    submit(".btn");
+    assertThat(pageSource()).contains("Your task has been saved.");
   }
 
   @Test
   public void taskIsDisplayedTest() {
-      goTo("http://localhost:4567/");
-      fill("#description").with("Mow the lawn");
-      submit(".btn");
-      click("a", withText("Go Back"));
-      assertThat(pageSource()).contains("Mow the lawn");
+    **goTo("http://localhost:4567/tasks/new");**
+    fill("#description").with("Mow the lawn");
+    submit(".btn");
+    **click("a", withText("View tasks"));**
+    assertThat(pageSource()).contains("Mow the lawn");
   }
 
   @Test
   public void multipleTasksAreDisplayedTest() {
-      goTo("http://localhost:4567/");
-      fill("#description").with("Mow the lawn");
-      submit(".btn");
-      click("a", withText("Go Back"));
-      goTo("http://localhost:4567/");
-      fill("#description").with("Wash the dishes");
-      submit(".btn");
-      click("a", withText("Go Back"));
-      assertThat(pageSource()).contains("Mow the lawn");
-      assertThat(pageSource()).contains("Wash the dishes");
+    **goTo("http://localhost:4567/tasks/new");**
+    fill("#description").with("Mow the lawn");
+    submit(".btn");
+    **goTo("http://localhost:4567/tasks/new");**
+    fill("#description").with("Buy groceries");
+    submit(".btn");
+    **click("a", withText("View tasks"));**
+    assertThat(pageSource()).contains("Mow the lawn");
+    assertThat(pageSource()).contains("Buy groceries");
   }
+
+  @Test
+  public void taskShowPageDisplaysDescription() {
+    goTo("http://localhost:4567/tasks/new");
+    fill("#description").with("Do the dishes");
+    submit(".btn");
+    click("a", withText("View tasks"));
+    click("a", withText("Do the dishes"));
+    assertThat(pageSource()).contains("Do the dishes");
+  }
+
 }
