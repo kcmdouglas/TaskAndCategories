@@ -16,8 +16,13 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/tasks", (request, response) -> {
+    get("/all-tasks", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+
+      // ArrayList<Task> tasks = category.getTasks();
+
+
+      model.put("categories", Category.all());
       model.put("tasks", Task.all());
       model.put("template", "templates/tasks.vtl");
       return new ModelAndView(model, layout);
@@ -32,11 +37,19 @@ public class App {
     post("/tasks", (request,response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Category category = Category.find(Integer.parseInt(request.queryParams("categoryId")));
+      ArrayList<Task> tasks = category.getTasks();
+
+      if (tasks == null) {
+        tasks = new ArrayList<Task>();
+        request.session().attribute("tasks", tasks);
+      }
+
       String description = request.queryParams("description");
       Task newTask = new Task(description);
+
       category.addTask(newTask);
       model.put("category", category);
-      model.put("template", "templates/success.vtl");
+      model.put("template", "templates/category.vtl");
       return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 

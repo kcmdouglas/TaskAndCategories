@@ -1,9 +1,11 @@
-<h1>All tasks</h1>
+<h1>All Tasks</h1>
 
-<ul>
-#foreach
-  <a href="/tasks/$task.getId()">$task.getDescription()</a>
+#foreach($category in $categories)
+ <h3><a href="/categories/$category.getId()">$category.getName()</a></h3>
+ #foreach ($task in $category.getTasks())
+   <li>$task.getDescription()</li>
+ #end
 #end
-</ul>
+
 
 <a href="/tasks/new" class="btn btn-default">Add a New Task</a>
