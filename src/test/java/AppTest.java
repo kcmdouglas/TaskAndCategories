@@ -27,31 +27,31 @@ public class AppTest extends FluentTest {
     @Test
   public void categoryIsCreatedTest() {
     goTo("http://localhost:4567/");
-    click("a", withText("Add a New category"));
+    click("a", withText("Add a New Category"));
     fill("#name").with("Household chores");
     submit(".btn");
     assertThat(pageSource()).contains("Your category has been saved.");
   }
 
-  // @Test
-  // public void categoryIsDisplayedTest() {
-  //   goTo("http://localhost:4567/categories/new");
-  //   fill("#name").with("Household chores");
-  //   submit(".btn");
-  //   click("a", withText("View categories"));
-  //   assertThat(pageSource()).contains("Household chores");
-  // }
-  //
-  //   @Test
-  // public void categoryTasksFormIsDisplayed() {
-  //   goTo("http://localhost:4567/categories/new");
-  //   fill("#name").with("Shopping");
-  //   submit(".btn");
-  //   click("a", withText("View categories"));
-  //   click("a", withText("Shopping"));
-  //   click("a", withText("Add a new task"));
-  //   assertThat(pageSource()).contains("Add a Task to Shopping");
-  // }
+  @Test
+  public void categoryIsDisplayedTest() {
+    goTo("http://localhost:4567/categories/new");
+    fill("#name").with("Household chores");
+    submit(".btn");
+    click("a", withText("View Categories"));
+    assertThat(pageSource()).contains("Household chores");
+  }
+
+    @Test
+  public void categoryTasksFormIsDisplayed() {
+    goTo("http://localhost:4567/categories/new");
+    fill("#name").with("Shopping");
+    submit(".btn");
+    click("a", withText("View Categories"));
+    click("a", withText("Shopping"));
+    click("a", withText("Add a new task"));
+    assertThat(pageSource()).contains("Add a Task to Shopping");
+  }
   //
   // @Test
   // public void tasksIsAddedAndDisplayed() {
@@ -65,6 +65,9 @@ public class AppTest extends FluentTest {
   //   submit(".btn");
   //   assertThat(pageSource()).contains("Deposit paycheck");
   // }
+
+
+
 
 
   //

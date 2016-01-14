@@ -1,3 +1,8 @@
 <h1>Success</h1>
+#if ($tasks)
 <p>Your task has been saved.</p>
+#else
+<p>Your category has been saved.</p>
+#end
 <a href="/" class="btn btn-default">Go Back</a>
+<a href="/categories">View Categories</a>
