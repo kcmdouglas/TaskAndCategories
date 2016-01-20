@@ -1,34 +1,25 @@
-# _{Application Name}_
+# _Tasks and Categories_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _Make a To-Do list with a variety of tasks, assigned to specific categories_
 
-#### By _**{List of contributors}**_
+#### By _Kassidy Douglas and Midori Bowen_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_This app uses ArrayLists and objects within objects to store tasks within specific categories. A user can see a full list of categories, a list of all categories and tasks, or simply go to a category's dynamically made page and see the tasks listed within it._
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
-
-## Known Bugs
-
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
-
-## Support and contact details
-
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+* _Make sure to have all technologies installed (specifically gradle, any Java Development Kits, Fluentlenium, etc.)_
+* _Clone this repository_
+* _In your terminal, run:_
+  `gradle run`
+* _In your browswer, go to:_
+  `http://localhost:4567`
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+_Java, Spark, JUnit, Velocity, Bootstrap, FluentLenium_
 
 ### License
 
@@ -38,4 +29,4 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Copyright (c) 2015 **_{List of contributors or company name}_**
+Copyright (c) 2015 **_Kassidy Douglas and Midori Bowen_**
